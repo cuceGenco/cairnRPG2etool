@@ -37,3 +37,82 @@ select,input,textarea { width:100%; background:#152036; color: var(--text); bord
 .footer { margin-top:8px; font-size:.82rem; color:var(--muted); }
 .tag { display:inline-block; background:#243443; color:#cdd9e9; border-radius:3px; padding:1px 5px; margin:1px; font-size:.75rem; }
 @media(max-width:1200px){ .main{grid-template-columns:1fr;} }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  height: calc(100vh - 80px);
+  padding: 10px;
+}
+
+.grid-cell {
+  border: 1px solid #2e3c57;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#182338,#111a29);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2c6f3e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #3a8f4e;
+}
+
+.panel-menu {
+  background: #111a2d;
+  border: 1px solid #2e3c57;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1000;
+}
+
+.menu-btn {
+  background: #2f4565;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.menu-btn:hover {
+  background: #3f5a7a;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #7f2323;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  background: #9f3333;
+}

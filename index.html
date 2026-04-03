@@ -10,54 +10,25 @@
   <header id="topBar">
     <strong>Cairn DM Screen</strong>
     <div id="topActions">
-      <a href="generators.html" style="color:#f8f6f0; margin-right: 12px;">Generators</a>
-      <a href="reference.html" style="color:#f8f6f0; margin-right: 12px;">Reference</a>
-      <span style="color:#aab9ca">(opens new page)</span>
+      <a href="generators.html" target="_blank" style="color:#f8f6f0; margin-right: 12px;">Generators</a>
+      <a href="reference.html" target="_blank" style="color:#f8f6f0; margin-right: 12px;">Reference</a>
+      <span style="color:#aab9ca">(opens new tab; DM window auto-sync via postMessage)</span>
     </div>
     <div id="toolButtons" style="display:flex;gap:6px; align-items:center;">
-      <button class="btn small-btn" id="addNotePanelBtn">Add Note Block</button>
-      <button class="btn small-btn" id="removeNotePanelBtn">Remove Note Block</button>
       <button class="btn small-btn" id="exportAllBtn">Export JSON</button>
       <input type="file" id="importFile" style="display:none;" accept="application/json" />
       <button class="btn small-btn" id="importAllBtn">Import JSON</button>
     </div>
-    <div id="toggleButtons">
-      <button data-toggle-panel="charDisplayPanel" class="active">Character</button>
-      <button data-toggle-panel="mapDisplayPanel" class="active">Map</button>
-      <button data-toggle-panel="bestDisplayPanel" class="active">Bestiary</button>
-      <button data-toggle-panel="initPanel" class="active">Initiative</button>
-      <button data-toggle-panel="dicePanel" class="active">Dice</button>
-      <button data-toggle-panel="notesPanel" class="active">Notes</button>
-    </div>
   </header>
-  <main class="main">
-    <section class="panel" id="charDisplayPanel"><header><h2>Generated Character</h2></header><div class="body">
-      <div class="output-block" id="charDisplay"></div>
-    </div></section>
-
-    <section class="panel" id="mapDisplayPanel"><header><h2>Generated Map</h2></header><div class="body">
-      <div class="output-block" id="mapDisplay"></div>
-    </div></section>
-
-    <section class="panel" id="bestDisplayPanel"><header><h2>Saved Monsters</h2></header><div class="body">
-      <div class="output-block" id="bestDisplay"></div>
-    </div></section>
-
-    <section class="panel" id="initPanel"><header><h2>War / Initiative Tracker</h2></header><div class="body">
-      <div class="inline-grid" style="margin-bottom: 8px;"><input id="initName" placeholder="Name" type="text"/><input id="initValue" placeholder="Initiative" type="number"/><button class="btn" id="addInitBtn">Add</button></div>
-      <div class="output-block" id="initOutput" style="height: 220px; overflow:auto;">No entries yet.</div>
-      <div style="margin-top: 8px;" class="inline-grid"><button class="btn small-btn" id="sortInitBtn">Sort Desc</button><button class="btn small-btn" id="clearInitBtn">Clear</button></div>
-    </div></section>
-
-    <section class="panel" id="dicePanel"><header><h2>Dice Roller</h2></header><div class="body">
-      <div class="inline-grid" style="grid-template-columns: repeat(4, minmax(0,1fr)); gap:6px;"><button class="btn small-btn" data-die="4">d4</button><button class="btn small-btn" data-die="6">d6</button><button class="btn small-btn" data-die="8">d8</button><button class="btn small-btn" data-die="10">d10</button><button class="btn small-btn" data-die="12">d12</button><button class="btn small-btn" data-die="20">d20</button><button class="btn small-btn" id="roll3d6">3d6</button><button class="btn small-btn" id="roll2d6">2d6</button></div>
-      <div class="output-block" id="diceOutput">Roll results appear</div>
-    </div></section>
-
-    <section class="panel" id="notesPanel"><header><h2>Notes</h2></header><div class="body">
-      <textarea id="notesText" rows="14" style="width:100%; background:#111a2d; color:#dce1e9; border:1px solid #2e3c57; border-radius:5px; padding:6px; resize:vertical;"></textarea>
-    </div></section>
-    <section class="panel" id="extraPanelsContainer"><header><h2>Extra Panels</h2></header><div class="body" id="extraPanelBody"></div></section>
+  <main class="grid-container">
+    <div class="grid-cell" id="cell1"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell2"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell3"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell4"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell5"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell6"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell7"><button class="add-btn">+</button></div>
+    <div class="grid-cell" id="cell8"><button class="add-btn">+</button></div>
   </main>
   <script src="dm.js"></script>
 </body>

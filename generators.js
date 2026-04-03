@@ -83,6 +83,15 @@ function loadSavedChars(){
   }));
 }
 
+function notifyDMUpdate(){
+  try {
+    localStorage.setItem('cairn-last-updated', Date.now().toString());
+  } catch(e) { }
+  if(window.opener && !window.opener.closed){
+    window.opener.postMessage({type:'cairn_data_updated'}, '*');
+  }
+}
+
 function saveCharacter(){
   const card = readCharFromFields();
   window.lastChar = card;
@@ -95,6 +104,7 @@ function saveCharacter(){
     chars.push(card);
   }
   localStorage.setItem('cairn-chars', JSON.stringify(chars));
+  notifyDMUpdate();
   alert('Character saved.');
   loadSavedChars();
   loadDisplays();
@@ -121,6 +131,7 @@ function saveMap(){
   const text = document.getElementById('mapEdit').value.trim();
   if(text){ window.lastMap = text; }
   localStorage.setItem('cairn-map', window.lastMap);
+  notifyDMUpdate();
   alert('Map saved.');
   loadSavedMap();
 }
@@ -158,6 +169,7 @@ function saveMonster(){
     monsters.push(monster);
   }
   localStorage.setItem('cairn-monsters', JSON.stringify(monsters));
+  notifyDMUpdate();
   alert('Monster saved.');
   loadSavedMonsters();
   loadDisplays();
