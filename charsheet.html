@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cairn Character Sheet</title>
+  <style>
+    body { margin:0; background:#080a10; color:#dce1e9; font-family:Inter,Arial,sans-serif; }
+    .wrapper { display:flex; flex-direction:column; min-height:100vh; }
+    .top { padding: 10px; background:#121a2b; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #2f3f58; }
+    .top a { color:#79b6ff; text-decoration:none; }
+    .sheet { position:relative; flex:1; display:flex; justify-content:center; align-items:center; padding:10px; }
+    .sheet-image { max-width:100%; max-height:calc(100vh - 100px); border:1px solid #31415a; border-radius:8px; }
+    .overlay { position:absolute; top:30px; left:30px; color:#e8e8d9; background:rgba(16,20,32,.7); border:1px solid #3c4a6a; border-radius:6px; padding:8px; min-width:220px; }
+    .overlay b { display:inline-block; width: 60px; }
+    .stats { margin-top:8px; }
+    .stat-line { margin-bottom:2px; }
+    .hint { margin-top:6px; font-size:.85rem; color:#9cb2c8; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top">
+      <div><strong>Cairn Character Sheet</strong></div>
+      <div><a href="index.html">← Back to Toolkit</a></div>
+    </div>
+    <div class="sheet">
+      <img src="character_sheet.png" alt="Character sheet reference background" class="sheet-image" onerror="this.style.display='none'" />
+      <div class="overlay" id="overlay">
+        <div><strong id="nameField">Name: Unknown</strong></div>
+        <div class="stats">
+          <div class="stat-line"><b>STR:</b> <span id="strVal">-</span></div>
+          <div class="stat-line"><b>DEX:</b> <span id="dexVal">-</span></div>
+          <div class="stat-line"><b>WIL:</b> <span id="wilVal">-</span></div>
+          <div class="stat-line"><b>HP:</b> <span id="hpVal">-</span></div>
+          <div class="stat-line"><b>BG:</b> <span id="bgVal">-</span></div>
+          <div class="stat-line"><b>Bond:</b> <span id="bondVal">-</span></div>
+          <div class="stat-line"><b>Omen:</b> <span id="omenVal">-</span></div>
+        </div>
+        <div class="hint">If this says Unknown, generate a character in the toolkit first and open this page again.</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function loadSheet(){
+      const raw = localStorage.getItem('cairn-char');
+      if(!raw){ return; }
+      const c = JSON.parse(raw);
+      document.getElementById('nameField').textContent = 'Name: ' + (c.name || 'Adventurer');
+      document.getElementById('strVal').textContent = c.STR || '-';
+      document.getElementById('dexVal').textContent = c.DEX || '-';
+      document.getElementById('wilVal').textContent = c.WIL || '-';
+      document.getElementById('hpVal').textContent = c.hp || '-';
+      document.getElementById('bgVal').textContent = c.background || '-';
+      document.getElementById('bondVal').textContent = c.bond || '-';
+      document.getElementById('omenVal').textContent = c.omen || '-';
+    }
+    document.addEventListener('DOMContentLoaded', loadSheet);
+  </script>
+</body>
+</html>

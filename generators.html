@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cairn Generators</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="topBar">
+    <strong>Cairn Generators</strong>
+    <div id="topActions">
+      <a href="index.html" style="color:#f8f6f0; margin-right: 12px;">← Back to DM Screen</a>
+    </div>
+  </header>
+  <main class="main">
+    <section class="panel" id="charGenPanel"><header><h2>Character Generator</h2></header><div class="body">
+      <div class="inline-grid"><button class="btn" id="charRollBtn">Generate Character</button><button class="btn" id="saveCharBtn">Save Character</button></div>
+      <div class="inline-grid" style="margin-top: 8px;"><button class="btn small-btn" id="exportCharBtn">Export JSON</button><button class="btn small-btn" id="loadCharsBtn">Reload Saved</button></div>
+      <div class="stat-grid" id="charStats"></div>
+      <div class="output-block" id="charOutput"></div>
+      <div style="margin-top:8px;"><strong>Edit character before save:</strong></div>
+      <div style="display:grid; gap:6px; margin-top:4px;">
+        <input id="charName" placeholder="Name" />
+        <input id="charBackground" placeholder="Background" />
+        <div class="inline-grid"><input id="charSTR" placeholder="STR" type="number"/><input id="charDEX" placeholder="DEX" type="number"/><input id="charWIL" placeholder="WIL" type="number"/></div>
+        <input id="charHP" placeholder="HP" type="number"/>
+        <input id="charBond" placeholder="Bond" />
+        <input id="charOmen" placeholder="Omen" />
+        <input id="charGear" placeholder="Gear (comma-separated)" />
+      </div>
+      <div style="margin-top:8px;" id="savedCharList"></div>
+    </div></section>
+
+    <section class="panel" id="mapGenPanel"><header><h2>Map Generator</h2></header><div class="body">
+      <div class="inline-grid"><button class="btn" id="mapGenBtn">Generate Map</button><button class="btn" id="saveMapBtn">Save Map</button></div>
+      <div class="output-block" id="mapOutput"></div>
+      <div style="margin-top:8px;"><strong>Edit map text:</strong></div>
+      <textarea id="mapEdit" rows="4" style="width:100%;background:#111a2d;color:#dce1e9;border:1px solid #2e3c57;border-radius:5px;padding:6px;"></textarea>
+      <div style="margin-top:8px;" id="savedMapList"></div>
+    </div></section>
+
+    <section class="panel" id="bestGenPanel"><header><h2>Bestiary Generator</h2></header><div class="body">
+      <div class="inline-grid"><button class="btn" id="bestiaryRndBtn">Random Monster</button><button class="btn" id="saveMonsterBtn">Save Monster</button></div>
+      <div class="output-block" id="bestOutput"></div>
+      <div style="margin-top:8px;"><strong>Edit monster before save:</strong></div>
+      <div style="display:grid; gap:6px; margin-top:4px;">
+        <input id="monsterName" placeholder="Name" />
+        <input id="monsterCategory" placeholder="Category" />
+        <input id="monsterHP" placeholder="HP" type="number" />
+        <input id="monsterAttack" placeholder="Attack" />
+        <input id="monsterTraits" placeholder="Traits" />
+      </div>
+      <div style="margin-top:8px;" id="savedMonsterList"></div>
+    </div></section>
+  </main>
+  <script src="generators.js"></script>
+</body>
+</html>
